@@ -8,11 +8,10 @@
 body {
   max-height: 100vh;
   background: url("images/Background\ Img.jpg");
-  display: grid;
-
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
 }
 header {
   top: 0;
@@ -41,12 +40,17 @@ header {
   margin-left: 30px;
 }
 .main-content {
-  width: 100%;
+  width: 70%;
   height: 300px;
   background-color: wheat;
   border-radius: 15px;
   padding: 50px 40px;
   box-shadow: 0 0 20px;
+  margin: 100px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
 .main-content .text-area {
@@ -68,6 +72,116 @@ header {
   border-radius: 5px;
 }
 
-.button-area button:active {
+.button-area button:hover {
   background: linear-gradient(gold, black);
+}
+
+#open-btn {
+  justify-content: baseline;
+  top: 70%;
+  left: 10%;
+  width: 350px;
+  height: 80px;
+  font-size: 2rem;
+  background: transparent;
+  color: black;
+  border: solid 2px black;
+  border-radius: 10px;
+  box-shadow: 0 0 40px;
+  transition: 0.5s;
+}
+#open-btn:hover {
+  background-color: black;
+  color: gold;
+  box-shadow: 0 0 40px white;
+}
+#modal {
+  background-color: black;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 80px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation-name: animatemodal;
+  animation-duration: 0.4s;
+  color: gold;
+}
+#close-btn {
+  font-size: 3rem;
+  cursor: pointer;
+  color: red;
+}
+#modal-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.accordion {
+  width: 65%;
+  background-color: red;
+  padding: 30px;
+  margin-top: 50px;
+  border-radius: 30px;
+}
+.accordion .accordion-title {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.accordion .content-container .question {
+  padding: 18px 0px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-bottom: 1px solid black;
+  position: relative;
+}
+
+.accordion .content-container .question::after {
+  content: "+";
+  position: absolute;
+  right: -5px;
+}
+.accordion .content-container .answer {
+  padding-top: 15px;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  width: 100%;
+  height: 0px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.accordion .content-container .answer .active {
+  height: 150px;
+}
+.accordion .content-container .question .active {
+  font-size: 18px;
+  transition: 0.5s;
+}
+
+.accordion .content-container .active .question:after {
+  content: "-";
+  font-size: 30px;
+  transition: 0.5s;
+}
+
+@keyframes animatemodal {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    opacity: 1;
+  }
 }
