@@ -60,3 +60,34 @@ btn.addEventListener("click", () => {
   person.innerText = quotes[random].person;
   console.log("e gou");
 });
+
+//
+
+let openBtn = document.getElementById("open-btn");
+let modalContainer = document.getElementById("modal-container");
+let closeBtn = document.getElementById("close-btn");
+
+openBtn.addEventListener("click", () => {
+  modalContainer.style.display = "block";
+});
+
+closeBtn.addEventListener("click", () => {
+  modalContainer.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modalContainer) {
+    modalContainer.style.display = "none";
+  }
+});
+
+///
+
+const accordion = document.getElementsByClassName("content-container");
+
+for (i = 0; i < accordion.length; i++) {
+  accordion[i].addEventListener("click", () => {
+    this.classList.toogle("active");
+    console.log("hey");
+  });
+}
